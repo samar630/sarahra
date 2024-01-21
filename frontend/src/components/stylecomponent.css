@@ -1,0 +1,130 @@
+.navbar {
+    width: 100%;
+    height: 90px;
+   
+  }
+  .navbar .container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    max-width: 1140;
+    font-size: 1.2rem;
+  }
+  .logo{
+    display: flex;
+    gap: 0.8rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+.nav__container{
+  display: flex;
+  float: right;
+}
+  .navbar .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    margin-right: 3rem;
+    gap: 6rem;
+ 
+  }
+  .navbar li {
+    padding: 1rem;
+  }
+  .hamburger {
+    display: none;
+  }
+  .navbar .icon {
+    color: black;
+    font-size: 1.2rem;
+  }
+  .navbar{
+    color: black;
+  }
+  .container__btn{
+    display: flex;
+    gap: 1rem;
+
+  }
+  @media screen and (max-width: 1270px) {
+    .hamburger {
+      display: block;
+    }
+    .nav {
+      position: absolute;
+      flex-direction: column;
+      justify-content: start !important;
+      text-align: center;
+      justify-items: center;
+      top: 90px;
+      left: -100%;
+      width: 100%;
+      height: 100vh;
+      background-color: #fff;;
+      transition: 0.3s;
+    }
+    .nav.active {
+      left: 0;
+      z-index: 1;
+    }
+    .nav__container{
+      display: flex;
+      flex-direction: column;
+      margin-right: 1rem;
+    }
+  .container__btn{
+    margin-left: 0%;
+  }
+    .nav a {
+      font-size: 1.4rem;
+    }
+  }
+  
+  .form__container{
+    padding: 32px;
+    filter: brightness(100%);
+    height: fit-content;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    height: fit-content;
+  }
+  .form__container form{
+    margin: 8% 0rem 0rem 0rem;
+  }
+  .sun_btn{
+    width: 680px;
+    background: #10BBB3;
+  
+    color: white;
+    border-radius: 5px;
+    padding: 6px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+  .sun_btn:hover{
+    background: black;
+
+  }
+
+  .form__container__login{
+    padding: 8px;
+    margin-top: 10rem;
+    filter: brightness(100%);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    height: max-content;
+  }
+  @media screen and (max-width:1220px){
+    .sun_btn{
+      width: 280px;
+     
+    }
+  }

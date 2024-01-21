@@ -1,0 +1,53 @@
+.formInput {
+    display: flex;
+    flex-direction: column;
+    width: 680px;
+    text-align: left;
+
+  }
+  
+  .formInput input {
+    padding: 15px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    border: 1px solid #8080803b;
+  }
+  
+  .formInput label {
+    font-size: 18px;
+    color: black;
+   
+  }
+  
+  .formInput span {
+    font-size: 12px;
+    padding: 3px;
+    color: red;
+    display: none;
+  }
+  
+  .formInput input:invalid[focused="true"] {
+    border: 1px solid red;
+  }
+  
+  .formInput input:invalid[focused="true"] ~ span {
+    display: block;
+  }
+  .have__account{
+    display: flex;
+    gap: 0.5rem;
+    padding: 4px 
+  }
+  .have__account a{
+    font-weight: 500;
+    font-style: oblique;
+    font-size: 1.1rem
+  }
+  @media screen and (max-width:1220px) {
+    .formInput {
+      display: flex;
+      flex-direction: column;
+      width: 280px;
+      text-align: left;
+    }
+  }
