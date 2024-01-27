@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const url = process.env.MONGO_URL;
+const url = process.env.MONGODB_URI;
 
 const options = {
   autoIndex: false, // Don't build indexes

@@ -98,18 +98,19 @@
   }
   .sun_btn{
     width: 680px;
-    background: #10BBB3;
-  
-    color: white;
+    background: #fff;
+    border: 1px solid  #10BBB3 ;
+    color: #10BBB3;
     border-radius: 5px;
     padding: 6px;
-    font-weight: bold;
-    font-size: 1.5rem;
+    font-weight: 600;
+    font-size: 1.2rem;
     margin-top: 1rem;
   }
   .sun_btn:hover{
-    background: black;
-
+    background: #10BBB3;
+    border: 1px solid  #fff ;
+    color: #fff;
   }
 
   .form__container__login{

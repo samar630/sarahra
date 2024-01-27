@@ -5,7 +5,9 @@ import {
     CREATE_USERS_REQUESTED,
     CREATE_USERS,
     DELETE_USERS_REQUESTED,
-    DELETE_USERS, 
+    DELETE_USERS,
+    CREATE_LOGIN,
+    CREATE_LOGIN_REQUESTED
   } from '../actions/auth-action';
 
   import {
@@ -17,7 +19,8 @@ import {
   import {
     getAlluser,
     createNewUsers,
-    deleteExistedUser
+    deleteExistedUser,
+    loginUsers
   } from '../api/user-api';
 
   function* getUsers(){
@@ -29,10 +32,13 @@ import {
     yield put({type: SET_LOADING})
     const newUser = yield call(createNewUsers, payload)
     yield put({type: CREATE_USERS, payload: {newUser}})
-    
-   
   }
-
+function* loginUser({payload}){
+  yield put({type: SET_LOADING})
+  const user = yield call(loginUsers, payload)
+  console.log(user, 'user')
+  yield put({type: CREATE_LOGIN, payload:{user}})
+}
   function* deleteUser({payload}){
     yield put({type: SET_LOADING})
     const user = yield call(deleteExistedUser, payload)
@@ -43,4 +49,5 @@ import {
     yield takeEvery(GET_USERS_REQUESTED, getUsers)
     yield takeEvery(CREATE_USERS_REQUESTED, createUser)
     yield takeEvery(DELETE_USERS_REQUESTED, deleteUser)
+    yield takeEvery(CREATE_LOGIN_REQUESTED, loginUser)
   }

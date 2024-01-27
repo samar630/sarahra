@@ -9,9 +9,11 @@ const FormInput = (props) => {
     setFocused(true)
   }
   return (
-    <div className="formInput">
-      <label>{label}</label>
+    <div className="formInput gap-2">
+      <label className="">{label}</label>
+      <div className="flex flex-col">
       <input
+     
         {...inputProps}
         onChange={onChange}
         onBlur={handleFocus}
@@ -21,6 +23,7 @@ const FormInput = (props) => {
         focused={focused.toString()}
       />
       <span>{errorMessage}</span>
+      </div>
     </div>
   )
 }

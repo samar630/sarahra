@@ -31,10 +31,10 @@ export const createNewUsers = async (user) => {
 export const loginUsers = async (user) => {
   try {
     const res = await axios.post(`${baseURL}/v1/signIn`, 
-      user?.user
+    user?.user
     )
-    console.log(res, 'res')
-    return res?.data?.data?.newUser
+    console.log(res, 'ressssssss')
+    return res
   
   } catch(err) {
     return console.error(err, 'error')

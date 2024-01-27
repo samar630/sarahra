@@ -10,7 +10,7 @@ import {
   const initialState = {
     loading: false,
     user: [],
-   
+    token : null
   }
   
 const reducerUser = (state = initialState, {type, payload}) => {
@@ -29,22 +29,25 @@ const reducerUser = (state = initialState, {type, payload}) => {
           loading: false
         }
     
-      case CREATE_USERS:
-        return {
-      ...state,
-      user: [payload?.newUser, ...state.user],
-      loading: false
-        }
+        case CREATE_USERS:
+          return {
+        ...state,
+        user: payload,
+        token: localStorage.setItem('token', payload?.newUser?.password),
+        loading: false
+          }
      case CREATE_LOGIN:
       return {
        ...state,
-       user: [payload?.newUser, ...state?.user]
+       user: payload?.user?.user,
+       token: localStorage.getItem('token'),
+       loading: false
       }
       case DELETE_USERS_REQUESTED:
         return {
           ...state,
-      user: state.user.filter(user => user.id !== payload),
-      loading: false
+          user: state.user.filter(user => user.id !== payload),
+          loading: false
         }
      
       default:

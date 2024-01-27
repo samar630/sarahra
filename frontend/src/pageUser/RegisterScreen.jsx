@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import '../components/stylecomponent.css'
 import FormInput from '../components/formInput/FromInput';
 import { CREATE_USERS_REQUESTED, SET_LOADING } from '../redux/actions/auth-action';
+import Modal from '../components/modal/AreaModal';
 
 
 const RegisterScreen = ( ) => {
- 
+  const [showModal, setShowModal] = useState(true);
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -65,13 +66,14 @@ const RegisterScreen = ( ) => {
       required: true
     }
   ]
-
-  const loading = useSelector((state) => state.user?.loading)
+  let token = localStorage.getItem('token')
+  const loading = useSelector((state) => state?.user?.loading)
   useEffect(() =>{
-    console.log(loading, 'loading')
+    console.log(loading, 'loading') 
+    console.log(token, "tokennnnnnn")
   })
-  const token = useSelector((state) => state.user?.user[0]?.password)
-  const setToken = localStorage.setItem(token, 'token')
+ 
+  
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value })
   }
@@ -80,14 +82,15 @@ const RegisterScreen = ( ) => {
     function submitHandler(e) {
       e.preventDefault();
        dispatch(
-        {
-          type: 'CREATE_USERS_REQUESTED',
-          payload: { user: values, loading: false },
-      })  
-    setTimeout(() => {
-      navigate('/')
-    }, 2000);
-  }
+            {
+              type: 'CREATE_USERS_REQUESTED',
+              payload: { user: values, loading: false },
+          })  
+         setTimeout(() =>{
+          <Modal showModal={showModal} setShowModal={setShowModal} />
+         },3000)
+        }
+  
   return (
    <div className='form__container'>
         <form onSubmit={submitHandler} >
@@ -115,7 +118,7 @@ const RegisterScreen = ( ) => {
            class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
            >Loading...</span>
        </div>
-       : 'Resister'}
+       : 'Verfiy && Login'}
        </button>
      </form>
    </div>

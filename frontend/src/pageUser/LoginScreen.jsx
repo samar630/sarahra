@@ -36,22 +36,31 @@ const LoginScreen = () => {
       setButtonDisabled(false)
     },2000)
   }
+  
+  let token = localStorage.getItem('token')
   const [values, setValues] = useState({
     email: "",
     password:""
   })
-    
+  function submitHandler(e) {
+    e.preventDefault();
+     dispatch(
+          {
+            type: 'CREATE_LOGIN_REQUESTED',
+            payload: { user: values, token:token, loading: false },
+        })  
+       setTimeout(() =>{
+     
+       },3000)
+      }
   const [buttonDisabled, setButtonDisabled] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
   
       useEffect(() => {
-      
+      console.log(token,'token')
       }, []);
-    const submitHandler = async (e) => {
-        e.preventDefault();
-     
-      };
+  
   return (
     <div className='form__container__login'>
     <form onSubmit={submitHandler} >
