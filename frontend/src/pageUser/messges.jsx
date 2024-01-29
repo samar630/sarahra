@@ -11,7 +11,8 @@ const Messges = () => {
      dispatch(
           {
             type: 'GET_MESSAGE_REQUESTED',  
-            payload: { massage:[] , loading: false },  
+            payload: {token: localStorage.getItem('token')}
+           
         })  
        setTimeout(() =>{  
        },3000)

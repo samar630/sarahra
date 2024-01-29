@@ -18,13 +18,7 @@ import { photoUpload } from "../../middleware/photoUpload.js";
 
 const userRouter = express.Router();
 
-userRouter.post("/v1/signUp", [validate.signUp], signUp, (err, data) => {
-  if (err) {
-    next(err)
-  } else {
-    res.send(data)
-  }
-});
+userRouter.post("/v1/signUp", signUp);
 userRouter.post("/v1/signIn", signIn);
 userRouter.post("/v1/profile", [auth], photoUpload.single("image"), profilePhoto);
 userRouter.get("/v1/verify/:token", verify);

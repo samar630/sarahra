@@ -1,9 +1,11 @@
-import axios from 'axios'
+import defaultAxios from 'axios'
 
-// const axios = defaultAxios.create({
-//   baseURL: 'http://localhost:5000',
-//   headers: {'Content-Type': 'application/json'}
-// });
+const axios = defaultAxios.create({
+  baseURL: 'http://localhost:5000',
+  headers: {'Content-Type': 'application/json',
+             
+}
+});
 
 const  baseURL = "http://localhost:5000"
 export const getAlluser = async () => {
@@ -34,7 +36,7 @@ export const loginUsers = async (user) => {
     user?.user
     )
     console.log(res, 'ressssssss')
-    return res
+    return res?.data
   
   } catch(err) {
     return console.error(err, 'error')

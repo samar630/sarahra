@@ -66,14 +66,12 @@ const Informantion = (props) => {
       const onChange = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value })
       }
-      const oldToken = JSON.parse(
-        localStorage.getItem('token')
-    );
+   
       let token = localStorage.getItem("token")
       const loading = useSelector((state) => state?.user?.loading)
       useEffect(() =>{
         console.log(loading, 'loading') 
-        console.log(oldToken, "oldToken")
+      
       })
       const dispatch = useDispatch();
       const navigate = useNavigate();

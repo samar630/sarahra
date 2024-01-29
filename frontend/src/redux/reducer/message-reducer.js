@@ -10,6 +10,7 @@ import {
   const initialState = {
     loading: false,
     message: [],
+    token:[]
   }
   
 const reducerMessage = (state = initialState, {type, payload}) => {
@@ -18,13 +19,15 @@ const reducerMessage = (state = initialState, {type, payload}) => {
       case SET_LOADING:
         return {
           ...state,
-        loading: true
+        loading: true,
+       
         }
  
       case GET_MESSAGE:
         return {
           ...state,
           message: payload,
+          token: localStorage.getItem('token'),
           loading: false
         }
     

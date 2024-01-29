@@ -5,7 +5,7 @@ import '../components/stylecomponent.css'
 const Login = (props) => {
     const inputs = [
         {
-          id: 2,
+          id: 1,
           name: "email",
           type: "email",
           placeholder: "Email",
@@ -14,13 +14,14 @@ const Login = (props) => {
         },
       
         {
-          id: 4,
+          id: 2,
           name: "password",
           type: "password",
           placeholder: "Password",
           label: "Password",
           required: true
-        },
+        }
+      
       
       ]
       const onChange = (e) => {
@@ -33,11 +34,11 @@ const Login = (props) => {
         },2000)
       }
       
-      const token = localStorage.getItem('token');
+   
       const [values, setValues] = useState({
         email: "",
         password:"",
-        token :token
+        token : localStorage.getItem('token')
       })
       function submitHandler(e) {
         e.preventDefault();
@@ -53,8 +54,8 @@ const Login = (props) => {
       const [buttonDisabled, setButtonDisabled] = useState(false);
         const dispatch = useDispatch();
         useEffect(() => {
-          console.log(token,'tokes')
-          }, [token]);
+         
+          }, []);
   return (
     <div className='form__container__login'>
     <form onSubmit={submitHandler} >

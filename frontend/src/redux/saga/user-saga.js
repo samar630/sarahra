@@ -31,11 +31,12 @@ import {
   function* createUser({payload}){
     yield put({type: SET_LOADING})
     const newUser = yield call(createNewUsers, payload)
+    console.log(newUser,'newUser')
     yield put({type: CREATE_USERS, payload: {newUser}})
   }
-function* loginUser({payload}){
+function* login({payload}){
   yield put({type: SET_LOADING})
-  const user = yield call(loginUsers, payload)
+ const user = yield call(loginUsers, payload)
   console.log(user, 'user')
   yield put({type: CREATE_LOGIN, payload:{user}})
 }
@@ -49,5 +50,5 @@ function* loginUser({payload}){
     yield takeEvery(GET_USERS_REQUESTED, getUsers)
     yield takeEvery(CREATE_USERS_REQUESTED, createUser)
     yield takeEvery(DELETE_USERS_REQUESTED, deleteUser)
-    yield takeEvery(CREATE_LOGIN_REQUESTED, loginUser)
+    yield takeEvery(CREATE_LOGIN_REQUESTED, login)
   }
