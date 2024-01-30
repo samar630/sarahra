@@ -4,7 +4,10 @@ import {
     GET_MESSAGE, 
     GET_MESSAGE_REQUESTED,
     CREATE_MESSAGE,
-    CREATE_MESSAGE_REQUESTED, 
+    CREATE_MESSAGE_REQUESTED,
+  FETCH_DATA_REQUEST,
+  FETCH_DATA_SUCCESS,
+  FETCH_DATA_FAILURE
   } from '../actions/message-action';
 
   const initialState = {
@@ -20,17 +23,14 @@ const reducerMessage = (state = initialState, {type, payload}) => {
         return {
           ...state,
         loading: true,
-       
         }
- 
-      case GET_MESSAGE:
-        return {
+        case GET_MESSAGE:
+         return {
           ...state,
           message: payload,
-          token: localStorage.getItem('token'),
           loading: false
         }
-    
+
       default:
         return state
     }

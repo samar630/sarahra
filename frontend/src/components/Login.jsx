@@ -34,11 +34,9 @@ const Login = (props) => {
         },2000)
       }
       
-   
       const [values, setValues] = useState({
         email: "",
         password:"",
-        token : localStorage.getItem('token')
       })
       function submitHandler(e) {
         e.preventDefault();

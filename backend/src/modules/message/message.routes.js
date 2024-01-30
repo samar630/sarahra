@@ -12,7 +12,7 @@ import { verifyToken, verifyUserAccess } from "../../middleware/verifyToken.js";
 const messageRouter = express.Router();
 
 messageRouter.post("/", [validate.message, auth, verifyUserAccess], addMessage);
-messageRouter.get("/", [auth, verifyUserAccess], getUserMessages);
+messageRouter.get("/", [auth], getUserMessages);
 messageRouter.patch("/:id", [auth, verifyToken], updateMessage);
 messageRouter.delete("/:id", [auth, verifyToken], deleteMessage);
 

@@ -7,12 +7,12 @@ import {  useNavigate } from 'react-router-dom';
 const Messges = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const token = localStorage.getItem('token')
   function submitHandler() {
      dispatch(
           {
-            type: 'GET_MESSAGE_REQUESTED',  
-            payload: {token: localStorage.getItem('token')}
-           
+            type: 'GET_MESSAGE_REQUESTED',
+            payload:token
         })  
        setTimeout(() =>{  
        },3000)
@@ -27,7 +27,7 @@ const Messges = () => {
       </div>
    
     <div className='flex flex-col lg:mt-16 lg:mr-36 sm:mt-0 sm:mr-0 items-center justfy-center  gap-0'>
-      <div className=' lg:w-[64rem] lg:h-[4rem] sm:w-[32rem] sm:h-[2rem]   border-2 border-solid border-gray-100  bg-white p-4 rounded-md  flex text-3xl gap-4 font-[600] flex-row justify-center items-center'>
+      <div className=' lg:w-[44rem] lg:h-[4rem] sm:w-[32rem] sm:h-[2rem]   border-2 border-solid border-gray-100  bg-white p-4 rounded-md  flex text-3xl gap-4 font-[600] flex-row justify-center items-center'>
         <span>
          <TiMessages />
         </span>

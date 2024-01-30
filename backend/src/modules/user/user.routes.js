@@ -13,7 +13,7 @@ import {
 import validate from '../../middleware/validate.js'
 // import middSignUp from "../../middleware/checkEmail.js";//
 import { auth } from '../../middleware/auth.js'
-import { verifyAdmen, verifyUserAndAdmin } from '../../middleware/verifyToken.js'
+import {verifyAdmen, verifyToken, verifyUserAndAdmin} from '../../middleware/verifyToken.js'
 import { photoUpload } from '../../middleware/photoUpload.js'
 
 const userRouter = express.Router()

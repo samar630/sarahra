@@ -18,7 +18,7 @@ import {
 
   function* getMessage({payload}){
     yield put({type: SET_LOADING})
-    const message = yield call(getAllmessage, payload.token)
+    const message = yield call(getAllmessage, payload)
     yield put({type: GET_MESSAGE, payload: {message}})
   }
 

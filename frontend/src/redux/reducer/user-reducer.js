@@ -33,19 +33,20 @@ const reducerUser = (state = initialState, {type, payload}) => {
           return {
         ...state,
         user: payload,
-        token: localStorage.setItem('token', payload?.newUser?.password),
         loading: false
           }
        case CREATE_LOGIN:
         return {
        ...state,
        user: payload,
+       token: localStorage.setItem('token', payload?.token),
        loading: false
       }
       case DELETE_USERS_REQUESTED:
         return {
           ...state,
           user: state.user.filter(user => user.id !== payload),
+
           loading: false
         }
      

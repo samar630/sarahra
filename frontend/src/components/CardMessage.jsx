@@ -5,7 +5,7 @@ const CardMessage = () => {
   return (
     <div className='
     border-[3px] rounded-lg border-solid border-[#10BBB3]
-    bg-white lg:w-[64rem] lg:h-[14rem] sm:w-[32rem] sm:h-[14rem]  p-8 '>
+    bg-white lg:w-[44rem] lg:h-[14rem] sm:w-[32rem] sm:h-[14rem]  p-8 '>
        <div className='flex flex-col gap-4'>
       <p className='my-4  font-bold text-md text-gray-700'>
         Lorem ipsum is a placeholder text

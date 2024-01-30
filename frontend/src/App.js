@@ -3,8 +3,6 @@ import "@fontsource/cairo";
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import RegisterScreen from './pageUser/RegisterScreen';
-import LoginScreen from './pageUser/LoginScreen';
 import Home from './pageUser/Home';
 import Nav from './components/Nav';
 import { Provider } from 'react-redux'
@@ -36,8 +34,6 @@ function App() {
              <Route path='/text' element={<Text />} />
              <Route path='/manager' element={<Manager />} />
              <Route path='/writemessage' element={<Messges />}/>
-             <Route path="/register" element={<RegisterScreen/>} />
-             <Route path="/login" element={<LoginScreen/>} />  
              </Routes>
              </BrowserRouter>
              </div>
