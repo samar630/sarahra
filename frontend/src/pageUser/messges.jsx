@@ -12,13 +12,14 @@ const Messges = () => {
      dispatch(
           {
             type: 'GET_MESSAGE_REQUESTED',
-            payload:token
+           
+            
         })  
        setTimeout(() =>{  
        },3000)
       }
       useEffect(() =>{
-    
+        submitHandler()
       },[])
   return (
     <section className='w-full mb-24  grid gap-[4rem]   md:grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-[6rem]  grid-cols-1 md:grid-cols-1 sm:grid-cols-1 lg:grid-cols-2'>
@@ -36,10 +37,9 @@ const Messges = () => {
         </span>
       </div>
        <div className='grid gap-8 items-center justify-center'>
-       <CardMessage className='' />
-      <CardMessage className='' />
+       {}
        </div>
-       <button onClick={submitHandler}>submitHandler</button>
+      <button onClick={submitHandler}>tt</button>
     </div>
   </section>
   )

@@ -2,12 +2,7 @@
 import { 
     SET_LOADING,
     GET_MESSAGE, 
-    GET_MESSAGE_REQUESTED,
     CREATE_MESSAGE,
-    CREATE_MESSAGE_REQUESTED,
-  FETCH_DATA_REQUEST,
-  FETCH_DATA_SUCCESS,
-  FETCH_DATA_FAILURE
   } from '../actions/message-action';
 
   const initialState = {
@@ -30,7 +25,12 @@ const reducerMessage = (state = initialState, {type, payload}) => {
           message: payload,
           loading: false
         }
-
+       case CREATE_MESSAGE:
+        return {
+          ...state,
+          message: payload,
+          loading:false
+        }
       default:
         return state
     }
