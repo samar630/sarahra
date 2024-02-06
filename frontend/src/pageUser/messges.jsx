@@ -8,6 +8,7 @@ const Messges = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const token = localStorage.getItem('token')
+  const msg = useSelector((state) => state?.message?.message?.message?.data?.messages?.docs)
   function submitHandler() {
      dispatch(
           {
@@ -19,6 +20,7 @@ const Messges = () => {
        },3000)
       }
       useEffect(() =>{
+        console.log(msg,'msg')
         submitHandler()
       },[])
   return (
@@ -37,9 +39,18 @@ const Messges = () => {
         </span>
       </div>
        <div className='grid gap-8 items-center justify-center'>
-       {}
+        {msg === '' ?  <div className='text-red-500 font-bold text-2xl mt-8'>
+        the session is expired please login again
+        </div> : 
+         msg?.map((x,index) => {
+          return(
+            <CardMessage createdAt={x.createdAt} message={x.message}/>
+          )
+         })
+        }
+      
        </div>
-      <button onClick={submitHandler}>tt</button>
+    
     </div>
   </section>
   )
