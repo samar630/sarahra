@@ -115,7 +115,6 @@
 
   .form__container__login{
     padding: 8px;
-    margin-top: 10rem;
     filter: brightness(100%);
     border-radius: 5px;
     display: flex;
@@ -125,7 +124,13 @@
   }
   @media screen and (max-width:1220px){
     .sun_btn{
-      width: 280px;
+      width: 380px;
+     
+    }
+  }
+  @media screen and (max-width:820px){
+    .sun_btn{
+      width: 320px;
      
     }
   }

@@ -6,7 +6,7 @@
   
   .formInput input {
     padding: 12px;
-     width: 650px;
+     width: 680px;
     border-radius: 8px;
     border: 1px solid #8080803b;
     outline: none;
@@ -55,10 +55,16 @@
     }
 
   }
+  @media screen and (max-width: 1220px) {
+    
+    .formInput input{
+      width: 380px;
+    }
+  }
   @media screen and (max-width : 820px){
     .formInput input {
-    
-       width: 280px;
+      
+       width: 320px;
      
     }
   }

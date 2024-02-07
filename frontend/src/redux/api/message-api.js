@@ -2,7 +2,7 @@
 import axios from 'axios'
 const token = localStorage.getItem("token")
 console.log(token,'token')
-const id = localStorage.getItem("id")
+
 
 
 const  baseURL = "http://localhost:5000"
@@ -24,8 +24,8 @@ export const PostMessage = async (messages) => {
     token
   } 
   try {
-    const message = await axios.post(`${baseURL}/v1/messages/${id}`,messages,{headers})
-    return message
+    const message = await axios.post(`${baseURL}/v1/messages`,messages,{headers})
+    return message?.message?.message
   } catch(err) {
     return console.error(err)
   }

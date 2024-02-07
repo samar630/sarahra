@@ -16,30 +16,42 @@ import Setting from './pageUser/setting';
 import Manager from './pageUser/manager';
 import Text from './pageUser/Text';
 import Show from "./pageUser/Show";
-
+import useNetwork from '../src/hook/useNetwork'
+import { useEffect } from "react";
+import Spinner from "./spinner/spinner";
 function App() {
+  const networkState = useNetwork();
+  const {
+    online,
+  } = networkState;
   let persistor = persistStore(store);
+  useEffect(() =>{
+  
+  },[])
   return (   
-  <div className='' style={{zIndex:'-1111'}}>      
-          <Provider store={store}>
-             <PersistGate loading={null} persistor={persistor} > 
-             <Nav />  
-             <div className="w-full">
-             <BrowserRouter>
-             <Routes  >
-             <Route path='/' element={<Home/>} />
-             <Route path="/show" element={<Show />} />
-             <Route path='/setting' element={<Setting />} />
-             <Route path='/cantact' element={<Contact />} />
-             <Route path='/text' element={<Text />} />
-             <Route path='/manager' element={<Manager />} />
-             <Route path='/writemessage' element={<Messges />}/>
-             </Routes>
-             </BrowserRouter>
-             </div>
-              <Footer className=""/>
-             </PersistGate>
-            </Provider>    
+  <div className='' style={{zIndex:'-1111'}}>  
+  {online ? 
+    <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor} > 
+    <Nav />  
+    <div className="w-full">
+    <BrowserRouter>
+    <Routes  >
+    <Route path='/' element={<Home/>} />
+    <Route path="/show" element={<Show />} />
+    <Route path='/setting' element={<Setting />} />
+    <Route path='/cantact' element={<Contact />} />
+    <Route path='/text' element={<Text />} />
+    <Route path='/manager' element={<Manager />} />
+    <Route path='/writemessage' element={<Messges />}/>
+    </Routes>
+    </BrowserRouter>
+    </div>
+     <Footer className=""/>
+    </PersistGate>
+   </Provider>  
+   :  <Spinner />  }    
+         
   </div>
  
   );

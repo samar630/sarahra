@@ -28,7 +28,7 @@ const reducerMessage = (state = initialState, {type, payload}) => {
        case CREATE_MESSAGE:
         return {
           ...state,
-          message: payload,
+          message: payload?.message?.message?.message,
           loading:false
         }
       default:

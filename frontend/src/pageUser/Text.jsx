@@ -1,23 +1,31 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaPencil } from "react-icons/fa6";
 import {useDispatch} from 'react-redux'
 const Text = () => {
   const dispatch = useDispatch()
-  const [msg , setMsg] = useState('')
+  const id = localStorage.getItem("id")
+  const [message , setMsg] = useState({
+       message: '',
+       receivedId: id
+  })
   const onChange = (e) => {
-    setMsg({ ...msg, [e.target.name]: e.target.value })
+    setMsg({ ...message, [e.target.name]: e.target.value })
   }
   function submitHandler(e) {
     e.preventDefault();
      dispatch(
           {
             type: 'CREATE_MESSAGE_REQUESTED',
-            payload: { message: msg, loading: false },
+            payload: { message: message, loading: false },
         })  
        setTimeout(() =>{
      
        },3000)
+   
       }
+       useEffect(() => {
+          console.log(message, 'message')
+       },[])
   return (
    <section className='flex flex-col  items-center justify-center'>
      <form onSubmit={submitHandler}  className='rounded-sm  gap-7 lg:w-[40%] sm:w-[60%] h-[80vh] bg-white p-4 m-8 flex flex-col items-center justify-center'>
@@ -29,7 +37,7 @@ const Text = () => {
            </span>
          </div> 
          <textarea  rows="6"
-         name='massege'
+         name='message'
          onChange={onChange}
           className="block p-2.5 w-[80%]  text-sm text-gray-900  rounded-md border  border-[#10BBB3]" 
          style={{outline:'none'}}

@@ -11,7 +11,7 @@ const Manager = (props) => {
   <div className=''>
   <Profile />
   </div>
-  <div>
+  <div className='flex flex-col items-center justify-center '>
   {register ?  <Informantion  register={register} setRegister={setRegister} /> : <Login  register={register} setRegister={setRegister} />}
   
   </div>
