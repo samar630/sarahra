@@ -25,7 +25,7 @@ import {
  
   function* postMessage({payload}){
     yield put({type: SET_LOADING})
-   const massege = yield call(PostMessage, payload?.message?.massege)
+   const massege = yield call(PostMessage, payload?.message)
     console.log(massege, 'massege')
     yield put({type: CREATE_MESSAGE, payload:{massege}})
   }

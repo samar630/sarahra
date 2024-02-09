@@ -13,8 +13,7 @@ const Messges = () => {
      dispatch(
           {
             type: 'GET_MESSAGE_REQUESTED',
-           
-            
+              
         })  
        setTimeout(() =>{  
        },3000)
@@ -39,13 +38,23 @@ const Messges = () => {
         </span>
       </div>
        <div className='grid gap-8 items-center justify-center'>
-        {msg === '' ?  <div className='text-red-500 font-bold text-2xl mt-8'>
+        {msg === undefined || '' ? 
+         <div className='text-red-500 font-bold text-2xl mt-8'>
         the session is expired please login again
-        </div> : 
+        </div>
+         : 
          msg?.map((x,index) => {
-          return(
-            <CardMessage createdAt={x.createdAt} message={x.message}/>
-          )
+          if(msg == []){
+            return(
+              <div className='text-red-500 font-bold text-2xl mt-8'>
+              the session is expired please login again
+              </div>
+            )
+          }else{
+            return(
+              <CardMessage createdAt={x.createdAt} message={x.message}/>
+            )
+          }
          })
         }
       

@@ -34,7 +34,7 @@ const Login = (props) => {
         setButtonDisabled(true)
         setTimeout(()=>{
           setButtonDisabled(false)
-           navigate('/writemessage')
+         
         },4000)
       }
       
@@ -50,8 +50,8 @@ const Login = (props) => {
                 payload: { user: values, loading: false },
             })  
            setTimeout(() =>{
-         
-           },3000)
+            navigate('/writemessage')
+           },4000)
           }
       const [buttonDisabled, setButtonDisabled] = useState(false);
         const dispatch = useDispatch();

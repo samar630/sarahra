@@ -6,7 +6,8 @@ import {  useNavigate } from 'react-router-dom';
 import Modal from './modal/AreaModal';
 const Informantion = (props) => {
   const loading = useSelector((state) => state?.user?.loading)
-  const [showModal, setShowModal] = useState(false);
+  const id = useSelector((state) => state?.user?.user?.newUser?._id)
+  const [buttonDisabled, setButtonDisabled] = useState(false);
   const [notLoading, setNotLoading] = useState(loading)
     const [values, setValues] = useState({
         name: "",
@@ -39,7 +40,7 @@ const Informantion = (props) => {
         {
           id: 3,
           name: "age",
-          type: "date",
+          type: "string",
           placeholder: "Birthday",
           label: "Birthday"
         },
@@ -70,16 +71,18 @@ const Informantion = (props) => {
       }
    
       let token = localStorage.getItem("token")
-   
-      const handelClick = () => {
-        setNotLoading(loading)
-        setTimeout(() =>{
-         setNotLoading(!loading)
-        },3000)
+      const handleClick = () =>{
+        setButtonDisabled(true)
+        setTimeout(()=>{
+          setButtonDisabled(false)
+          props.setRegister(false)
+        },4000)
       }
+   
       useEffect(() =>{
         console.log(loading, 'loading') 
-      
+        console.log(id, 'id')
+        setNotLoading(false)
       })
       const dispatch = useDispatch();
       const navigate = useNavigate();
@@ -90,9 +93,6 @@ const Informantion = (props) => {
                 type: 'CREATE_USERS_REQUESTED',
                 payload: { user: values, loading: false },
             })  
-          //  setTimeout(() =>{
-          //   <Modal showModal={showModal} setShowModal={setShowModal} />
-          //  },3000)
           }
   return (
     <div className='flex flex-col p-2 m-8 justify-center '>
@@ -146,9 +146,9 @@ const Informantion = (props) => {
         <button className='font-bold text-md' onClick={() => props.setRegister(false)} >Login</button>
        </div>
        <button  className='sun_btn'
-       onClick={handelClick}
+       onClick={handleClick}
        >
-         {notLoading ?
+         {buttonDisabled ?
          <div
          class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
          role="status">

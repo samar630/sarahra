@@ -1,5 +1,6 @@
 
 import axios from 'axios'
+
 const token = localStorage.getItem("token")
 console.log(token,'token')
 
@@ -10,9 +11,11 @@ export const getAllmessage = async () => {
   const headers = {
     token
   }
+
   try {   
     const message = await axios.get(`${baseURL}/v1/messages`, {headers})
     return message
+  
   } catch(err) {
     return console.error(err)
   }

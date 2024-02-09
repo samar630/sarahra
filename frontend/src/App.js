@@ -1,6 +1,5 @@
 
 import "@fontsource/cairo"; 
-
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './pageUser/Home';
@@ -19,8 +18,11 @@ import Show from "./pageUser/Show";
 import useNetwork from '../src/hook/useNetwork'
 import { useEffect } from "react";
 import Spinner from "./spinner/spinner";
+import Login from "./components/Login";
+
 function App() {
   const networkState = useNetwork();
+ 
   const {
     online,
   } = networkState;
@@ -34,6 +36,7 @@ function App() {
     <Provider store={store}>
     <PersistGate loading={null} persistor={persistor} > 
     <Nav />  
+
     <div className="w-full">
     <BrowserRouter>
     <Routes  >
@@ -44,9 +47,11 @@ function App() {
     <Route path='/text' element={<Text />} />
     <Route path='/manager' element={<Manager />} />
     <Route path='/writemessage' element={<Messges />}/>
+    <Route path="/login"  element={<Login/>}/>
     </Routes>
     </BrowserRouter>
     </div>
+  
      <Footer className=""/>
     </PersistGate>
    </Provider>  

@@ -4,19 +4,19 @@ import {useDispatch} from 'react-redux'
 const Text = () => {
   const dispatch = useDispatch()
   const id = localStorage.getItem("id")
-  const [message , setMsg] = useState({
+  const [msg , setMsg] = useState({
        message: '',
        receivedId: id
   })
   const onChange = (e) => {
-    setMsg({ ...message, [e.target.name]: e.target.value })
+    setMsg({ ...msg, [e.target.name]: e.target.value })
   }
   function submitHandler(e) {
     e.preventDefault();
      dispatch(
           {
             type: 'CREATE_MESSAGE_REQUESTED',
-            payload: { message: message, loading: false },
+            payload: { message: msg, loading: false },
         })  
        setTimeout(() =>{
      
@@ -24,7 +24,7 @@ const Text = () => {
    
       }
        useEffect(() => {
-          console.log(message, 'message')
+          console.log(msg, 'message')
        },[])
   return (
    <section className='flex flex-col  items-center justify-center'>
@@ -36,7 +36,8 @@ const Text = () => {
            Leave a constructive message :)
            </span>
          </div> 
-         <textarea  rows="6"
+         <textarea 
+          rows="6"
          name='message'
          onChange={onChange}
           className="block p-2.5 w-[80%]  text-sm text-gray-900  rounded-md border  border-[#10BBB3]" 
